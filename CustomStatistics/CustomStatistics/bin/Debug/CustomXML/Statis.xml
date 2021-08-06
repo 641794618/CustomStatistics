@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<thesqlcustom> 
+  <!--记录统计的信息-->
+  <select id="1">
+    <title>审核医师工作量统计</title>
+    <author>yuxz</author>
+    <date></date>
+    <sql_statement><![CDATA[select * from exam_master a left join exam_report b on a.ris_no=b.ris_no where 1=1]]></sql_statement>
+    <isNeedCondition key="1">
+      <Condition cid="1">
+        <ConditionName>申请时间:</ConditionName>
+        <ConditionDBName>REQ_DATE_TIME</ConditionDBName>
+        <ConditionType>date</ConditionType>
+        <ConditionDBPronoun>a</ConditionDBPronoun>
+	    </Condition>
+    </isNeedCondition>
+  </select>
+  
+  <select id="2">
+    <title>设备工作量统计</title>
+    <author></author>
+    <date></date>
+    <sql_statement><![CDATA[select count(ris_no),name from exam_master a where 1=1 group by name]]></sql_statement>
+    <isNeedCondition key="1">
+      <Condition cid="1">
+        <ConditionName>申请时间:</ConditionName>
+        <ConditionDBName>REQ_DATE_TIME</ConditionDBName>
+        <ConditionType>date</ConditionType>
+        <ConditionDBPronoun>a</ConditionDBPronoun>
+	    </Condition>
+      <Condition cid="2">
+        <ConditionName>ID号:</ConditionName>
+        <ConditionDBName>RIS_NO</ConditionDBName>
+        <ConditionType>text</ConditionType>
+        <ConditionListText></ConditionListText>
+        <ConditionDBPronoun>a</ConditionDBPronoun>
+        <isLike>1</isLike>
+      </Condition>
+      <Condition cid="3">
+        <ConditionName>姓名:</ConditionName>
+        <ConditionDBName>NAME</ConditionDBName>
+        <ConditionType>text</ConditionType>
+        <ConditionListText></ConditionListText>
+        <ConditionDBPronoun>a</ConditionDBPronoun>
+        <isLike>1</isLike>
+      </Condition>
+      <Condition cid="4">
+        <ConditionName>检查类别:</ConditionName>
+        <ConditionDBName>MODALITY</ConditionDBName>
+        <ConditionType>checktext</ConditionType>
+        <ConditionListText>CT,DR,MR</ConditionListText>
+        <ConditionDBPronoun>a</ConditionDBPronoun>
+        <isLike>1</isLike>
+      </Condition>
+      <Condition cid="5">
+        <ConditionName>患者来源:</ConditionName>
+        <ConditionDBName>PATIENT_SOURCE</ConditionDBName>
+        <ConditionType>texts</ConditionType>
+        <ConditionListText>体检,住院,门诊,病房</ConditionListText>
+        <ConditionDBPronoun>a</ConditionDBPronoun>
+        <isLike>1</isLike>
+	    </Condition>
+    </isNeedCondition> 
+  </select>
+  
+  <select id="3">
+    <title>质控统计</title>
+    <author></author>
+    <date></date>
+    <sql_statement><![CDATA[select * from exam_master where 1=1]]></sql_statement>
+     <isNeedCondition key="1">
+      <Condition cid="1">
+        <ConditionName>RIS号:</ConditionName>
+        <ConditionDBName>RIS_NO</ConditionDBName>
+        <ConditionType>text</ConditionType>
+        <ConditionListText></ConditionListText>
+        <isLike>1</isLike>
+      </Condition>
+      <Condition cid="2">
+        <ConditionName>患者姓名:</ConditionName>
+        <ConditionDBName>NAME</ConditionDBName>
+        <ConditionType>text</ConditionType>
+        <ConditionListText></ConditionListText>
+        <isLike>1</isLike>
+      </Condition>
+      </isNeedCondition>
+  </select>
+  
+  <select id="4">
+    <title>手术符合率统计</title>
+    <author></author>
+    <date></date>
+    <sql_statement><![CDATA[]]></sql_statement>
+  </select>
+  
+</thesqlcustom>
